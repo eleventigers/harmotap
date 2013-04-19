@@ -1,8 +1,13 @@
+// Project variables
+@import "variables.less";
+
 // Overriden variables for Bootstrap
 @import "variables-bootstrap-override.less";  
 
-// Import Bootstrap3
+// Bootstrap3
 @import "../bootstrap/less/mixins.less";
+// Extend mixins (col-small-span with push, pull & offset classes etc.)
+@import "mixins-bootstrap-override.less";
 @import "../bootstrap/less/normalize.less";
 @import "../bootstrap/less/print.less";
 @import "../bootstrap/less/scaffolding.less";
@@ -39,5 +44,8 @@
 @import "../bootstrap/less/utilities.less";
 @import "../bootstrap/less/responsive-utilities.less";
 
-// Import Font Awesome
+// Font Awesome
 @import "../fontawesome/less/font-awesome.less";
+
+// Other fonts use by this project
+@import "fonts.less";
