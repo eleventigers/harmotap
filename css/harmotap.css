@@ -5388,6 +5388,7 @@ ul.icons li [class*=" icon-"] {
 .nav-side {
   overflow: hidden;
   position: relative;
+  bottom: 0;
   -webkit-box-shadow: inset -13px 0px 15px -14px #979797;
   box-shadow: inset -13px 0px 15px -14px #979797;
 }
@@ -5422,6 +5423,7 @@ h6 {
 .navbar > .navbar-brand {
   padding: 0;
   margin: 0;
+  max-width: 100%;
 }
 .btn-2x {
   font-size: 200%;
@@ -5436,4 +5438,24 @@ h6 {
 .btn-trans.active {
   background-color: transparent;
   border-color: transparent;
+}
+.l-fixed-view {
+  position: fixed;
+  top: 0;
+}
+.l-fixed-view[class*="col-span-"],
+.l-fixed-view[class*="col-small-span-"] {
+  padding: 0;
+}
+.l-fixed-active[class*="col-push-"] {
+  right: 0;
+}
+.l-fixed-active[class*="col-pull-"] {
+  left: 0;
+}
+.l-fixed-active[class*="col-small-push-"] {
+  right: 0;
+}
+.l-fixed-active[class*="col-small-pull-"] {
+  left: 0;
 }
