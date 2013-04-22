@@ -12,4 +12,9 @@ You can use pre-built css files or you can build it with grunt. Before running g
 To build css and doc assets run:
 * `` grunt ``
 To quickly preview the theme, you can build docs site with jekyyl, which will run a little server on port 9001:
-* jekyll --server
+* `` jekyll --server ``
+
+Future
+========
+
+This theme is only a slight variation from Bootstrap 3, but I hope that my future work will make Harmotap more distinct in its own way - stay in the loop!
