@@ -17,4 +17,4 @@ To quickly preview the theme, you can build docs site with jekyyl, which will ru
 Future
 ========
 
-This theme is only a slight variation from Bootstrap 3, but I hope that my future work will make Harmotap more distinct in its own way - stay in the loop!
+This theme is only a slight variant of Bootstrap 3, but I hope that my future work will make Harmotap more distinct in its own way - stay in the loop!
