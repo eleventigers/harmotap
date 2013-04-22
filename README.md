@@ -7,11 +7,16 @@ Usage
 ========
 
 You can use pre-built css files or you can build it with grunt. Before running grunt, do:
+
 * `` git submodule update `` 
 * `` npm install ``
+
 To build css and doc assets run:
+
 * `` grunt ``
+
 To quickly preview the theme, you can build docs site with jekyyl, which will run a little server on port 9001:
+
 * `` jekyll --server ``
 
 Future
