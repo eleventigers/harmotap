@@ -21,16 +21,29 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      main: {
+        files: [
+          {expand: true, flatten: true, src: ['css/*'], dest: 'docs/assets/css/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bootstrap/docs/assets/css/*'], dest: 'docs/assets/css/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['fonts/*'], dest: 'docs/assets/fonts/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bootstrap/docs/assets/ico/*'], dest: 'docs/assets/ico/', filter: 'isFile'}, 
+          {expand: true, flatten: true, src: ['bootstrap/docs/assets/img/examples/*'], dest: 'docs/assets/img/examples', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bootstrap/docs/assets/js/**'], dest: 'docs/assets/js/', filter: 'isFile'}  
+        ]
+      }
+    },
     watch: {
-      files: ['less/*.less'],
-      tasks: ['less']
+      files: ['less/*.less', 'docs/**.html'],
+      tasks: ['less', 'copy']
     }
   });
 
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['less']);
+  grunt.registerTask('default', ['less', 'copy']);
 
 };
