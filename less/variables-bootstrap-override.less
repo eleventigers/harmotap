@@ -9,13 +9,20 @@
 
 // Grays
 // -------------------------
-
+// DEPREC
 @grayDarker:            #222;
 @grayDark:              #2b3435;
 @gray:                  #555;
 @grayLight:             #999;
 @grayLighter:           #eee;
 @white: 				#fcfbf7;
+
+// TODO: rename dependant;
+@gray-darker:            lighten(#000, 13.5%); // #222
+@gray-dark:              lighten(#000, 20%);   // #333
+@gray:                   lighten(#000, 33.5%); // #555
+@gray-light:             lighten(#000, 60%);   // #999
+@gray-lighter:           lighten(#000, 93.5%); // #eee
 
 // Brand colors
 // -------------------------
@@ -47,27 +54,33 @@
 @font-family-base:        @font-family-sans-serif;
 
 @font-size-base:          14px;
-@font-size-large:         (@font-size-base * 1.25); // ~18px
-@font-size-small:         (@font-size-base * 0.85); // ~12px
-@font-size-mini:          (@font-size-base * 0.75); // ~11px
+@font-size-large:         ceil(@font-size-base * 1.25); // ~18px
+@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+@font-size-mini:          ceil(@font-size-base * 0.75); // ~11px
 
-@line-height-base:        20px;
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
-@headings-font-family:    inherit; // empty to use BS default, @font-family-base
-@headings-font-weight:    700;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
 
 
 // Components
 // -------------------------
-// Based on 14px font-size and 1.5 line-height
+// Based on 14px font-size and 1.428 line-height (~20px to start)
 
-@padding-large:           11px 14px; // 44px
-@padding-small:           2px 10px;  // 26px
-@padding-mini:            0 6px;   // 22px
+@padding-base-vertical:          8px;
+@padding-base-horizontal:        12px;
 
-@border-radius-base:      0px;
-@border-radius-large:     0px;
-@border-radius-small:     0px;
+@padding-large-vertical:         14px;
+@padding-large-horizontal:       16px;
+
+@padding-small-vertical:         5px;
+@padding-small-horizontal:       10px;
+
+@border-radius-base:             4px;
+@border-radius-large:            6px;
+@border-radius-small:            3px;
 
 @component-active-bg:            @brand-primary;
 
@@ -85,22 +98,27 @@
 // Buttons
 // -------------------------
 
-@btn-color:                      #fff;
-@btn-bg:                         #4f5f60;
-@btn-border:                     @btn-bg;
+@btn-default-color:              #fff;
+@btn-default-bg:                 #4f5f60;
+@btn-default-border:             @btn-default-bg;
 
+@btn-primary-color:              @btn-default-color;
 @btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             @btn-primary-bg;
 
+@btn-success-color:              @btn-default-color;
 @btn-success-bg:                 @brand-success;
 @btn-success-border:             @btn-success-bg;
 
+@btn-warning-color:              @btn-default-color;
 @btn-warning-bg:                 @brand-warning;
 @btn-warning-border:             @btn-warning-bg;
 
+@btn-danger-color:               @btn-default-color;
 @btn-danger-bg:                  @brand-danger;
 @btn-danger-border:              @btn-danger-bg;
 
+@btn-info-color:                 @btn-default-color;
 @btn-info-bg:                    @brand-info;
 @btn-info-border:                @btn-info-bg;
 
@@ -182,11 +200,11 @@
 @navbar-brand-hover-bg:            transparent;
 
 // Inverted navbar
-@navbar-inverse-text:                       @grayLight;
-@navbar-inverse-bg:                         @grayDark;
+@navbar-inverse-color:                      @gray-light;
+@navbar-inverse-bg:                         #222;
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 @grayLighter;
+@navbar-inverse-link-color:                 @gray-light;
 @navbar-inverse-link-hover-color:           #fff;
 @navbar-inverse-link-hover-bg:              transparent;
 @navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
@@ -267,7 +285,6 @@
 @label-warning-bg:            @brand-warning;
 @label-danger-bg:             @brand-danger;
 
-
 // Modals
 // -------------------------
 @modal-inner-padding:         20px;
@@ -275,6 +292,24 @@
 @modal-title-padding:         15px;
 @modal-title-line-height:     @line-height-base;
 
+// Alerts
+// -------------------------
+@alert-bg:                    @state-warning-bg;
+@alert-text:                  @state-warning-text;
+@alert-border:                @state-warning-border;
+@alert-border-radius:         @border-radius-base;
+
+@alert-success-bg:            @state-success-bg;
+@alert-success-text:          @state-success-text;
+@alert-success-border:        @state-success-border;
+
+@alert-danger-bg:             @state-danger-bg;
+@alert-danger-text:           @state-danger-text;
+@alert-danger-border:         @state-danger-border;
+
+@alert-info-bg:               @state-info-bg;
+@alert-info-text:             @state-info-text;
+@alert-info-border:           @state-info-border;
 
 // Progress bars
 // -------------------------
@@ -285,7 +320,6 @@
 @progress-bar-danger-bg:      @brand-danger;
 @progress-bar-info-bg:        @brand-info;
 
-
 // List group
 // -------------------------
 @list-group-bg:               #fff;
@@ -293,7 +327,7 @@
 @list-group-border-radius:    @border-radius-base;
 
 @list-group-hover-bg:         #f5f5f5;
-@list-group-active-text:      #fff;
+@list-group-active-color:     #fff;
 @list-group-active-bg:        @component-active-bg;
 @list-group-active-border:    @list-group-active-bg;
 
@@ -303,6 +337,7 @@
 @panel-border:                #ddd;
 @panel-border-radius:         @border-radius-base;
 @panel-heading-bg:            #f5f5f5;
+@panel-footer-bg:             #f5f5f5;
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
@@ -325,6 +360,14 @@
 @panel-info-heading-bg:       @state-info-bg;
 
 
+// Thumbnails
+// -------------------------
+@thumbnail-caption-color:     @text-color;
+@thumbnail-bg:                @body-bg;
+@thumbnail-border:            #ddd;
+@thumbnail-border-radius:     @border-radius-base;
+
+
 // Wells
 // -------------------------
 @well-bg:                     #f5f5f5;
@@ -341,6 +384,43 @@
 
 
 
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Tiny screen / phone
+@screen-tiny:                480px;
+@screen-phone:               @screen-tiny;
+
+// Small screen / tablet
+@screen-small:               768px;
+@screen-tablet:              @screen-small;
+
+// Medium screen / desktop
+@screen-medium:              992px;
+@screen-desktop:             @screen-medium;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-small-max:           (@screen-medium - 1);
+@screen-tablet-max:          @screen-small-max;
+
+// Large screen / wide desktop
+@screen-large:               1200px;
+@screen-large-desktop:       @screen-large;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+@container-tablet:          728px;
+
+// Medium screen / desktop
+@container-desktop:         940px;
+
+// Large screen / wide desktop
+@container-large-desktop:   1170px;
+
+
 // Grid system
 // --------------------------------------------------
 
@@ -349,4 +429,4 @@
 // Padding, to be divided by two and applied to the left and right of all columns
 @grid-gutter-width:         30px;
 // Point at which the navbar stops collapsing
-@grid-float-breakpoint:     768px;
+@grid-float-breakpoint:     @screen-tablet;

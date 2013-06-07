@@ -1,6 +1,9 @@
 {
   "name": "harmotap",
   "version": "0.0.1",
+  "dependencies": {
+  	"bootstrap": "git://github.com/twitter/bootstrap.git#45c5b4e45c1d6479801dc205e13b350e334ebcd0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-less": "~0.5.0",
